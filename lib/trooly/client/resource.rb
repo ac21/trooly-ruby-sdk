@@ -4,13 +4,6 @@ module Trooly
       def initialize(web_driver)
         @web_driver = web_driver
       end
-
-      protected
-
-      def resource_name
-        self.class.name.to_s.split('::').last
-      end
-
     end
   end
 end

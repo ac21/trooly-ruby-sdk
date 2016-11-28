@@ -8,12 +8,11 @@ before_install:
 cache: bundler
 
 rvm:
-  - 1.9.3
-  - 2.0.0
+  - 2.0
   - 2.1
   - 2.2
   - 2.3.1
 
 addons:
   code_climate:
-    repo_token: 5edccf9f03c16fe5e0ffa5922b4fa6b6808b465572114feac2b6bc6d82785bc1
+    repo_token: 1b39b043a2eb317b3e8202eb459c71af2899d7b43e884e9a4d7b124489446f42

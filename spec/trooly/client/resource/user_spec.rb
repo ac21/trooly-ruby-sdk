@@ -11,9 +11,9 @@ describe Trooly::Client::Resource::User do
       status: 200,
       headers: {},
       body: {
-        "troolytest": {
-          "status": "ready",
-          "timestamp": "2015-06-27T16:08:39.411000+00:00"
+        "troolytest" => {
+          "status" => "ready",
+          "timestamp" => "2015-06-27T16:08:39.411000+00:00"
         }
       }.to_json
     )
@@ -23,7 +23,7 @@ describe Trooly::Client::Resource::User do
     double(:response,
       status: 200,
       headers: {},
-      body: { "success": { "code": 200 } }.to_json
+      body: { "success" => { "code" => 200 } }.to_json
     )
   }
 
@@ -56,7 +56,7 @@ describe Trooly::Client::Resource::User do
         double(:response,
           status: 400,
           headers: {},
-          body: { "error": { "code": 400 } }.to_json
+          body: { "error" => { "code" => 400 } }.to_json
         )
       }
 

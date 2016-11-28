@@ -23,7 +23,7 @@ describe Trooly::Client do
     it { is_expected.to be_a(described_class) }
 
     context 'header Authorization' do
-      let(:auth) { "Basic #{Base64.encode64([clientid, api_key].join(':'))}" }
+      let(:auth) { 'Basic Y2xpZW50aWQ6c2VjcmV0' }
 
       it 'is base64 encoding of clientid and api_key' do
         expect(client.web_driver.headers['Authorization']).to eq(auth)

@@ -11,7 +11,7 @@ module Trooly
         include Parser::User
 
         def find(userid)
-          response = format_response( @web_driver.get("/user/#{userid}") )
+          response = format_response( @web_driver.get("user/#{userid}") )
 
           handle_response(response) do
             return nil if response.body.nil?
@@ -28,7 +28,7 @@ module Trooly
           data[:callback] = callback unless callback.nil?
           data[:callback_token] = callback_token unless callback_token.nil?
 
-          response = format_response( @web_driver.post('/user', data.to_json) )
+          response = format_response( @web_driver.post('user', data.to_json) )
 
           handle_response(response) do
             true

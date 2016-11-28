@@ -10,7 +10,7 @@ module Trooly
   class Client
     include Response
 
-    URL = 'https://api.troo.ly/1.0'
+    URL = 'https://api.troo.ly'
     API_VERSION = "1.0"
 
     attr_reader :web_driver
@@ -32,7 +32,7 @@ module Trooly
     private
 
     def create_authorization(clientid, api_key)
-      auth_str = Base64.encode64([clientid, api_key].join(':'))
+      auth_str = Base64.strict_encode64([clientid, api_key].join(':'))
       "Basic #{auth_str}"
     end
   end

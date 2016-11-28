@@ -1,7 +1,8 @@
 # Trooly Ruby SDK
 
-[![Code Climate](https://codeclimate.com/github/ac21/basic-ruby-sdk/badges/gpa.svg)](https://codeclimate.com/github/ac21/basic-ruby-sdk)
-[![Test Coverage](https://codeclimate.com/github/ac21/basic-ruby-sdk/badges/coverage.svg)](https://codeclimate.com/github/ac21/basic-ruby-sdk/coverage)
+[![Code Climate](https://codeclimate.com/github/ac21/trooly-ruby-sdk/badges/gpa.svg)](https://codeclimate.com/github/ac21/trooly-ruby-sdk)
+[![Test Coverage](https://codeclimate.com/github/ac21/trooly-ruby-sdk/badges/coverage.svg)](https://codeclimate.com/github/ac21/trooly-ruby-sdk/coverage)
+[![Build Status](https://travis-ci.org/ac21/trooly-ruby-sdk.svg?branch=master)](https://travis-ci.org/ac21/trooly-ruby-sdk)
 
 A basic ruby client to access the Trooly service
 
