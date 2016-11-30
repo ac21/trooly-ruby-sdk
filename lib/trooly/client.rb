@@ -1,4 +1,3 @@
-require 'trooly/client/version'
 require 'trooly/client/entity'
 require 'trooly/client/response'
 require 'trooly/client/resource'

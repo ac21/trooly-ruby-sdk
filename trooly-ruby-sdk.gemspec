@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'trooly/client/version'
+require 'trooly/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "trooly-ruby-sdk"
-  spec.version       = Trooly::Client::VERSION
+  spec.version       = Trooly::VERSION
   spec.authors       = ["Andrew Conrad"]
   spec.email         = ["aconrad@sittercity.com"]
 

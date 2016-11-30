@@ -1,4 +1,5 @@
 require 'trooly/client'
+require 'trooly/version'
 require 'trooly/configuration'
 require 'trooly/mock_client'
 
@@ -20,14 +21,18 @@ module Trooly
     private
 
     def trooly_client
-      @trooly_client ||= if configuration.use_mock
-        MockClient.new
-      else
-        Client.new(
-          configuration.clientid,
-          configuration.api_key
-        )
-      end
+      configuration.use_mock ? mock_client : real_client
+    end
+
+    def mock_client
+      @mock_client ||= MockClient.new
+    end
+
+    def real_client
+      @real_client ||= Client.new(
+        configuration.clientid,
+        configuration.api_key
+      )
     end
   end
 end

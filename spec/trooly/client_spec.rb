@@ -13,10 +13,6 @@ describe Trooly::Client do
     allow(web_driver_class).to receive(:new).and_return( web_driver )
   end
 
-  it 'has a version number' do
-    expect(Trooly::Client::VERSION).not_to be nil
-  end
-
   describe '#new' do
     subject { client }
 
