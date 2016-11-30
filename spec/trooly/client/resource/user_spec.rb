@@ -40,14 +40,14 @@ describe Trooly::Client::Resource::User do
   end
 
   describe '#submit' do
-    let(:user_submission) {
-      Trooly::Client::Entity::UserSubmission.new(
+    let(:data) { {
+      :user => {
         :userid => userid,
         :names => ['John Smith'],
         :emails => ['j.smith@example.org', 'john@example.org']
-      )
-    }
-    subject { user.submit(user_submission) }
+      }
+    } }
+    subject { user.submit(data) }
 
     it { is_expected.to eq(true) }
 

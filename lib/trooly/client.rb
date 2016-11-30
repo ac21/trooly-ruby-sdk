@@ -26,7 +26,7 @@ module Trooly
     end
 
     def verify
-      user.submit( Entity::UserSubmission.new( :userid => 'troolytest') )
+      user.submit( user: { userid: 'troolytest' } )
     end
 
     private

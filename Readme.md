@@ -22,9 +22,14 @@ And then execute:
 
 ### Authentication / Basic Usage
 ```ruby
-require "trooly/client"
+require "trooly"
 
-client = Trooly::Client.new("clientid", "api_key")
+Trooly.configure do |config|
+  config.clientid = 'clientid'
+  config.api_key = 'api_key'
+end
+
+client = Trooly.client
 
 
 client.verify
@@ -34,18 +39,35 @@ client.verify
 ### Submit a user for screening
 
 ```ruby
-user_submission = Trooly::Client::Entity::UserSubmission.new(
-  :userid => 'troolytest01',
-  :names => ['John Smith'],
-  :emails => ['jsmith@example.org', 'john@example.org']
+client.user.submit(
+  :user => {
+    :userid => 'troolytest01',
+    :names => ['John Smith'],
+    :emails => ['jsmith@example.org', 'john@example.org'],
+    :phones => ['888-555-1212'],
+    :dobs => ['1972-01-01'],
+    :ip_addresses => ['1.1.1.1'],
+    :facebook_tokens => ['token'],
+    :addresses => [
+      {
+        :street => '123 N Main St',
+        :city => 'Palo Alto',
+        :state => 'CA',
+        :zipcode => '98000',
+        :country =< 'US'
+      }
+    ],
+    :address_strings => ['123 N Main St, Palo Alto, CA 98000']
+  },
+  :callback => nil,
+  :callback_token => nil,
 )
-
-client.user.submit user_submission
-
 # => true
+```
 
-### Retrieve a screened user
+### Retrieve a submitted user
 
+```ruby
 client.user.find(userid)
 # => <Struct User...>
 ```
