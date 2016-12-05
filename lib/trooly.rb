@@ -31,7 +31,8 @@ module Trooly
     def real_client
       @real_client ||= Client.new(
         configuration.clientid,
-        configuration.api_key
+        configuration.api_key,
+        configuration.opts
       )
     end
   end

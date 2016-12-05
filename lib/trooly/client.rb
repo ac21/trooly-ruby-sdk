@@ -3,6 +3,7 @@ require 'trooly/client/response'
 require 'trooly/client/resource'
 
 require "faraday"
+require "logger"
 require "base64"
 
 module Trooly
@@ -14,8 +15,22 @@ module Trooly
 
     attr_reader :web_driver
 
+    DEFAULT_OPTIONS = {
+      logger: ::Logger.new(STDOUT),
+      logging: {
+        bodies: false,
+        headers: false
+      }
+    }
+
     def initialize(clientid, api_key, opts = {})
-      @web_driver = ::Faraday.new([URL, API_VERSION].join("/"))
+      @opts = DEFAULT_OPTIONS.merge(opts)
+
+      @web_driver = ::Faraday.new([URL, API_VERSION].join("/")) do |faraday|
+        faraday.response(:logger, @opts[:logger], @opts[:logging]) if @opts[:logger]
+        faraday.adapter ::Faraday.default_adapter
+      end
+
       @web_driver.headers['Authorization'] = create_authorization(clientid, api_key)
       @web_driver.headers['Content-Type'] = opts[:content_type] || 'application/json'
     end

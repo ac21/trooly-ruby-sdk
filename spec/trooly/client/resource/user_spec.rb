@@ -13,7 +13,14 @@ describe Trooly::Client::Resource::User do
       body: {
         "troolytest" => {
           "status" => "ready",
-          "timestamp" => "2015-06-27T16:08:39.411000+00:00"
+          "timestamp" => "2015-06-27T16:08:39.411000+00:00",
+          "trooly_code" => [
+            {
+              "code" => "traffic",
+              "confidence" => "low",
+              "hierarchy" => ["traffic", "minor_crime"]
+            }
+          ]
         }
       }.to_json
     )
