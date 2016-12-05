@@ -7,7 +7,14 @@ module Trooly
     end
 
     class MockUser
+      attr_accessor :found, :submission
+
+      def initialize
+        @found = @submission = nil
+      end
+
       def find(userid)
+        @found = userid
         Trooly::Client::Entity::User.new(
           userid: userid,
           status: 'ready',
@@ -19,7 +26,8 @@ module Trooly
         )
       end
 
-      def submit(_user_submission)
+      def submit(user_submission)
+        @submission = user_submission
         true
       end
     end
