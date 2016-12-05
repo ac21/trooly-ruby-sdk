@@ -9,19 +9,19 @@ describe MockUserParser do
   let(:userid) { "troolytest" }
   let(:trooly_code) {
     {
-      "code": "traffic",
-      "confidence": "low",
-      "hierarchy": ["traffic", "minor_crime"]
+      "code" => "traffic",
+      "confidence" => "low",
+      "hierarchy" => ["traffic", "minor_crime"]
     }
   }
 
   let(:evidence) {
     {
-      "type": "database",
-      "identity": "weak_match",
-      "trooly_code": [trooly_code],
-      "synopsis": {
-        snippet: "missing_dob"
+      "type" => "database",
+      "identity" => "weak_match",
+      "trooly_code" => [trooly_code],
+      "synopsis" => {
+        "snippet" => "missing_dob"
       }
     }
   }

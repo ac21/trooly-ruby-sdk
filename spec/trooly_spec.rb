@@ -30,7 +30,7 @@ describe Trooly do
       let(:use_mock) { false }
 
       it 'creates a client using the configuration clientid and api_key' do
-        expect(Trooly::Client).to receive(:new).with(clientid, api_key).and_call_original
+        expect(Trooly::Client).to receive(:new).with(clientid, api_key, any_args).and_call_original
         expect(subject).to be_a(Trooly::Client)
       end
     end
