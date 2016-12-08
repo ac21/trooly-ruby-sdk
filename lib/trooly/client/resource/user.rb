@@ -14,7 +14,8 @@ module Trooly
           response = format_response( @web_driver.get("user/#{userid}") )
 
           handle_response(response) do
-            parse_user(response.body, userid) unless response.body.nil?
+            data = JSON.parse(response.body)
+            parse_user(data[userid], userid) unless response.body.nil?
           end
         end
 

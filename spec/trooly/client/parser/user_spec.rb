@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'json'
 
 class MockUserParser
   include Trooly::Client::Parser::User
@@ -34,12 +33,13 @@ describe MockUserParser do
         "trooly_code" => [trooly_code],
         "evidence" => [evidence]
       }
-    }.to_json
+    }
   }
+
   let(:parser) { described_class.new }
 
   describe '#parse_user' do
-    subject { parser.parse_user(data, userid) }
+    subject { parser.parse_user(data[userid], userid) }
 
     it { is_expected.to be_a(Trooly::Client::Entity::User) }
 

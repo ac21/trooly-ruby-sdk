@@ -2,15 +2,13 @@ require 'trooly/client/entity/user'
 require 'trooly/client/entity/trooly_code'
 require 'trooly/client/entity/evidence'
 require 'trooly/client/entity/synopsis'
-require 'json'
 require 'time'
 
 module Trooly
   class Client
     module Parser
       module User
-        def parse_user(data, userid)
-          user = JSON.parse(data)[userid]
+        def parse_user(user, userid)
           return nil if user.nil?
 
           Entity::User.new(
