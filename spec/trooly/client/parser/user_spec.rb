@@ -43,12 +43,24 @@ describe MockUserParser do
 
     it { is_expected.to be_a(Trooly::Client::Entity::User) }
 
-    it 'has correct properties' do
+    it 'has correct summary properties' do
       expect(subject.trooly_code).to be_a(Array)
       expect(subject.trooly_code.first).to be_a(Trooly::Client::Entity::TroolyCode)
       expect(subject.evidence).to be_a(Array)
       expect(subject.evidence.first).to be_a(Trooly::Client::Entity::Evidence)
       expect(subject.evidence.first.synopsis).to be_a(Trooly::Client::Entity::Synopsis)
+    end
+
+    it 'has the correct values in Synopsis' do
+      expect(subject.evidence.first.synopsis.snippet).to eq("missing_dob")
+    end
+
+    it 'has the correct values in Evidence' do
+      expect(subject.evidence.first.type).to eq("database")
+    end
+
+    it 'has the correct values in Codes' do
+      expect(subject.trooly_code.first.code).to eq("traffic")
     end
   end
 end
